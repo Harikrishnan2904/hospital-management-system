@@ -13,7 +13,6 @@ private:
     int hh;
 public:
     appointment();
-    ~appointment();
     void fillMap();
     void saveMap();
     void printDetails();

@@ -15,13 +15,6 @@ appointment::appointment()
     D.id = -1;
     P.id = -1;
 }
-appointment::~appointment()
-{
-    id = -1;
-    D.id = -1;
-    P.id = -1;
-    return;
-}
 void appointment::fillMap()
 {
     fstream f;

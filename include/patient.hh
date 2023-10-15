@@ -15,15 +15,15 @@ private:
 
 public:
     patient();
-    void override fillMap();
-    void override saveMap();
-    void override addPerson();
-    void override printDetails();
-    void override printDetailsFromHistory(string extraDetails = "");
-    void override getDetails(int rec = 0);
-    void override getDetailsFromHistory();
+    void fillMap() override;
+    void saveMap() override;
+    void addPerson() override;
+    void printDetails() override;
+    void printDetailsFromHistory(string extraDetails = "") override;
+    void getDetails(int rec = 0) override;
+    void getDetailsFromHistory() override;
     void hospitalize();
     void reportADeath();
-    void override removePerson();
+    void removePerson() override;
 };
 #endif // !PATIENT

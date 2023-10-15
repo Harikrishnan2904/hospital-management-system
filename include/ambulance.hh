@@ -1,6 +1,5 @@
 #ifndef AMBULANCE
 #define AMBULANCE
-using namespace std;
 #include <string>
 
 #include "./driver.hh"

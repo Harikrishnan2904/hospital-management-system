@@ -1,6 +1,5 @@
 #ifndef PERSON
 #define PERSON
-using namespace std;
 #include <string>
 
 #include "./address.hh"

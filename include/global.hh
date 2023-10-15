@@ -1,6 +1,5 @@
 #ifndef GLOBAL_HMS
 #define GLOBAL_HMS
-using namespace std;
 #include <string>
 
 extern int yyyymmdd;

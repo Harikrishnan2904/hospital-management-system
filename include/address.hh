@@ -1,6 +1,5 @@
 #ifndef ADDRESS
 #define ADDRESS
-using namespace std;
 #include <string>
 
 class address

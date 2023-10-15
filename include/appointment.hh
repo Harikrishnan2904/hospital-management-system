@@ -1,6 +1,5 @@
 #ifndef APPOINTMENT
 #define APPOINTMENT
-using namespace std;
 
 #include "./patient.hh"
 #include "./doctor.hh"

@@ -1,6 +1,5 @@
 #ifndef PATIENT
 #define PATIENT
-using namespace std;
 
 #include "./person.hh"
 

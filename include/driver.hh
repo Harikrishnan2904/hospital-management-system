@@ -1,6 +1,5 @@
 #ifndef DRIVER
 #define DRIVER
-using namespace std;
 #include <string>
 
 #include "./person.hh"

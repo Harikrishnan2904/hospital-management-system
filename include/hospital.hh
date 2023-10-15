@@ -1,6 +1,5 @@
 #ifndef HOSPITAL
 #define HOSPITAL
-using namespace std;
 #include <string>
 #include <vector>
 #include <map>

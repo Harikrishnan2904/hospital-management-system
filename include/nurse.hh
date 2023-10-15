@@ -1,6 +1,5 @@
 #ifndef NURSE
 #define NURSE
-using namespace std;
 #include <string>
 
 #include "./person.hh"

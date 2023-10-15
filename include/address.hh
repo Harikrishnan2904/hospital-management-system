@@ -5,7 +5,8 @@
 class address
 {
 private:
-    string line1, line2;
+    string line1
+    string line2;
     string city;
     string state;
     string pinCode;

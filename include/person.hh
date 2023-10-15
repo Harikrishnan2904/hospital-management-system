@@ -8,7 +8,8 @@ class person //abstract class
 {
 protected:
     int id;
-    string firstName, lastName;
+    string firstName
+    string lastName;
     char gender;
     int16_t age;
     string mobNumber;

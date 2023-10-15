@@ -9,9 +9,13 @@ using namespace std;
 #include "./../include/doctor.hh"
 #include "./../include/hospital.hh"
 
-doctor::doctor() : id(-1), appoinmentsBooked(0), cat("doctor"), category(1)
+doctor::doctor()
 {
     type = "";
+    id = -1;
+    appointmentsBooked = 0;
+    cat = "doctor";
+    category = 1;
 }
 void doctor::fillMap()
 {

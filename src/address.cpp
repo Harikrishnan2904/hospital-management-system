@@ -8,9 +8,10 @@ using namespace std;
 #include "./../include/global.hh"
 #include "./../include/address.hh"
 
-address::address() : line1(""), line2(""), city(""), state(""), pinCode(""), country("")
+address::address()
 {
     line1 = "";
+    line2 = "";
     city = "";
     state = "";
     pinCode = "";

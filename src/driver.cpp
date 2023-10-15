@@ -9,10 +9,13 @@ using namespace std;
 #include "./../include/driver.hh"
 #include "./../include/hospital.hh"
 
-driver::driver() : id(-1), cat("driver"), category(4)
+driver::driver()
 {
+    id = -1;
     licenseNumber = "";
     idle = 1;
+    cat = "driver";
+    category = 4;
 }
 void driver::fillMap()
 {

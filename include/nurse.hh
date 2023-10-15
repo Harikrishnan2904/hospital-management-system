@@ -11,13 +11,13 @@ private:
 
 public:
     nurse();
-    void fillMap();
-    void saveMap();
-    void addPerson();
-    void printDetails();
-    void printDetailsFromHistory(string extraDetails = "");
-    void getDetails(int rec = 0);
-    void getDetailsFromHistory();
-    void removePerson();
+    void override fillMap();
+    void override saveMap();
+    void override addPerson();
+    void override printDetails();
+    void override printDetailsFromHistory(string extraDetails = "");
+    void override getDetails(int rec = 0);
+    void override getDetailsFromHistory();
+    void override removePerson();
 };
 #endif // !NURSE

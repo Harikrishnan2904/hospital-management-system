@@ -2,8 +2,8 @@
 #include <fstream>
 #include <string>
 #include <sstream>
-#include <ios>    //used to get stream size
-#include <limits> //used to get numeric limits
+#include <ios>  
+#include <limits>
 using namespace std;
 
 #include "./include/global.hh"
@@ -69,7 +69,7 @@ void appointmentsMenu()
             cout << "Invalid choice!\n";
         }
 
-        cin.ignore(numeric_limits<streamsize>::max(), '\n'); // clearing cin buffer;
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
 
         cout << endl;
         cout << "\nPress ENTER to continue...\n";
@@ -149,7 +149,7 @@ void patientsMenu()
             cout << "Invalid choice!\n";
         }
 
-        cin.ignore(numeric_limits<streamsize>::max(), '\n'); // clearing cin buffer;
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
 
         cout << endl;
         cout << "\nPress ENTER to continue...\n";
@@ -217,7 +217,7 @@ void doctorsMenu()
             cout << "Invalid choice!\n";
         }
 
-        cin.ignore(numeric_limits<streamsize>::max(), '\n'); // clearing cin buffer;
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
 
         cout << endl;
         cout << "\nPress ENTER to continue...\n";
@@ -285,7 +285,7 @@ void nursesMenu()
             cout << "Invalid choice!\n";
         }
 
-        cin.ignore(numeric_limits<streamsize>::max(), '\n'); // clearing cin buffer;
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
 
         cout << endl;
         cout << "\nPress ENTER to continue...\n";
@@ -353,7 +353,7 @@ void driversMenu()
             cout << "Invalid choice!\n";
         }
 
-        cin.ignore(numeric_limits<streamsize>::max(), '\n'); // clearing cin buffer;
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
 
         cout << endl;
         cout << "\nPress ENTER to continue...\n";
@@ -433,7 +433,7 @@ void ambulancesMenu()
             cout << "Invalid choice!\n";
         }
 
-        cin.ignore(numeric_limits<streamsize>::max(), '\n'); // clearing cin buffer;
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
 
         cout << endl;
         cout << "\nPress ENTER to continue...\n";
@@ -503,7 +503,6 @@ int main()
              << s.substr(6, 2) + "-" + s.substr(4, 2) + "-" + s.substr(0, 4) + "\n";
         return 0;
     }
-    // filling maps with data from csv files;
     {
         doctor d1;
         patient p;
@@ -517,9 +516,6 @@ int main()
         d2.fillMap();
         a1.fillMap();
         a2.fillMap();
-        // NOTE:
-        // fill drivers' Map before ambulances' Map;
-        // fill doctors' and patients' Map before appointments' Map;
     }
     while (1)
     {
@@ -580,7 +576,6 @@ int main()
 
         cout << endl;
     }
-    // saving data inside maps by overwriting it on the files
     {
         doctor d1;
         patient p;

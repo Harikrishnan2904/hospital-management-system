@@ -20,4 +20,4 @@ public:
     void getDetailsFromHistory() override;
     void removePerson() override;
 };
-#endif // !NURSE
+#endif

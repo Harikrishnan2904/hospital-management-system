@@ -14,7 +14,6 @@
 class hospital
 {
 private:
-    //map<id, object>
     static map<int, doctor> doctorsList;
     static map<int, patient> patientsList;
     static map<int, nurse> nursesList;
@@ -44,4 +43,4 @@ public:
     static void printAppointments();
 };
 
-#endif // !HOSPITAL
+#endif

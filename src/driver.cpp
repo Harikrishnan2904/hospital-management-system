@@ -22,16 +22,12 @@ void driver::fillMap()
     fstream f;
     f.open("./data/drivers.csv", ios::in);
     string temp;
-    //skipping the first row containing column headers;
     getline(f >> ws, temp);
-    //analyzing each entry afterwards;
     while (getline(f >> ws, temp))
     {
         driver d;
-        //creating a string stream object to read from string 'temp';
         stringstream s(temp);
         string s1, s4, s5, s7, s9;
-        //reading from the string stream object 's';
         getline(s, s1, ',');
         getline(s, d.firstName, ',');
         getline(s, d.lastName, ',');
@@ -55,7 +51,6 @@ void driver::saveMap()
 {
     fstream f;
     f.open("./data/temp.csv", ios::out);
-    // `le first line conataining column headers:
     f << "driverId,firstName,lastName,gender,age,mobNumber,address,licenseNumber,idle?\n";
     for (auto i : hospital::driversList)
         f << i.second.id << "," << i.second.firstName << "," << i.second.lastName << "," << i.second.gender
@@ -73,7 +68,6 @@ void driver::addPerson()
         cout << "\n\nDrivers limit reached, can't add more!\n\n";
         return;
     }
-    //18 and 65 are the age limits for registration of a new driver;
     person::addPerson(18, 65);
     if ((age < 18) || (age > 65))
         return;
@@ -85,9 +79,7 @@ void driver::addPerson()
         id = 1;
     hospital::driversList[id] = *this;
 
-    //creating a fstream object to read/write from/to files;
     fstream f;
-    //creating a record in driversHistory.csv;
     f.open("./data/driversHistory.csv", ios::app);
     f << firstName << "," << lastName << "," << gender << "," << age << "," << mobNumber << "," << add.addToStr() << "," << licenseNumber << ",N,NA" << endl;
     f.close();
@@ -121,16 +113,12 @@ void driver::printDetailsFromHistory(string extraDetails)
         fstream f;
         f.open("./data/driversHistory.csv", ios::in);
         string temp;
-        //skipping the first row containing column headers;
         getline(f >> ws, temp);
-        //analyzing each entry afterwards;
         while (getline(f >> ws, temp))
         {
             driver d;
-            //creating a string stream object to read from string 'temp';
             stringstream s(temp);
             string s4, s5, s7;
-            //reading from the string stream object 's';
             getline(s, d.firstName, ',');
             getline(s, d.lastName, ',');
             getline(s, s4, ',');
@@ -160,7 +148,6 @@ void driver::getDetails(int rec)
     cin >> opt;
     while (opt != 1 && opt != 2 && opt != 3)
         cout << "option 1, 2 or 3?\n", cin >> opt;
-    //1: Filter by ID;
     if (opt == 1)
     {
         int reqId;
@@ -171,7 +158,6 @@ void driver::getDetails(int rec)
         else
             cout << "\nNo matching record found!\n";
     }
-    //2: Filter by name;
     else if (opt == 2)
     {
         string reqFName, reqLName;
@@ -209,7 +195,6 @@ void driver::getDetails(int rec)
             } while (tt == 'Y');
         }
     }
-    //3: Filter by licenseNumber;
     else if (opt == 3)
     {
         string reqlicenseNumber;
@@ -223,9 +208,6 @@ void driver::getDetails(int rec)
                 return;
             }
         }
-        //if a record is found, it's details will be stored in the driver class object that called this function,
-        //and the control is returned;
-        //else:
         cout << "\nNo matching record found!\n";
     }
     return;
@@ -238,7 +220,6 @@ void driver::getDetailsFromHistory()
     while (opt != 1 && opt != 2)
         cout << "option 1 or 2?\n", cin >> opt;
 
-    //1: Filter by name;
     if (opt == 1)
     {
         string reqFName, reqLName;
@@ -251,16 +232,12 @@ void driver::getDetailsFromHistory()
         fstream f;
         f.open("./data/driversHistory.csv", ios::in);
         string temp;
-        //skipping the first row containing column headers;
         getline(f >> ws, temp);
-        //analyzing each entry afterwards;
         while (getline(f >> ws, temp))
         {
             driver d;
-            //creating a string stream object to read from string 'temp';
             stringstream s(temp);
             string s4, s5, s7, s9;
-            //reading from the string stream object 's';
             getline(s, d.firstName, ',');
             getline(s, d.lastName, ',');
 
@@ -286,7 +263,6 @@ void driver::getDetailsFromHistory()
         for (int i = 0; i < matchingRecords.size(); i++)
             matchingRecords[i].printDetailsFromHistory(extraDetails[i]);
     }
-    //2: Filter by licenseNumber;
     else if (opt == 2)
     {
         string reqlicenseNumber;
@@ -297,15 +273,11 @@ void driver::getDetailsFromHistory()
         fstream f;
         f.open("./data/driversHistory.csv", ios::in);
         string temp;
-        //skipping the first row containing column headers;
         getline(f >> ws, temp);
-        //analyzing each entry afterwards;
         while (getline(f >> ws, temp))
         {
-            //creating a string stream object to read from string 'temp';
             stringstream s(temp);
             string s4, s5, s7, s9;
-            //reading from the string stream object 's';
             getline(s, firstName, ',');
             getline(s, lastName, ',');
             getline(s, s4, ',');
@@ -325,9 +297,6 @@ void driver::getDetailsFromHistory()
             }
         }
         f.close();
-        //if a record is found, it's details will be stored in the driver class object that called this function,
-        //and the control is returned;
-        //else:
         cout << "\nNo matching record found!\n";
     }
     return;

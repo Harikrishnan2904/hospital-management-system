@@ -10,7 +10,7 @@ private:
     int id;
     doctor D;
     patient P;
-    int hh; //hh -> start hour in 24 hour format;
+    int hh;
 public:
     appointment();
     ~appointment();
@@ -21,4 +21,4 @@ public:
     void fillDetails();
     void getDetails();
 };
-#endif // !APPOINTMENT
+#endif

@@ -11,7 +11,7 @@ private:
     int id;
     string model;
     string manufacturer;
-    string vrn; //vehicle registration number;
+    string vrn;
     bool idle;
     address add;
     driver D;
@@ -29,4 +29,4 @@ public:
     void reportArrival();
     void removeAmbulance();
 };
-#endif // !AMBULANCE
+#endif

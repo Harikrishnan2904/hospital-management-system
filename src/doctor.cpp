@@ -22,16 +22,12 @@ void doctor::fillMap()
     fstream f;
     f.open("./data/doctors.csv", ios::in);
     string temp;
-    //skipping the first row containing column headers;
     getline(f >> ws, temp);
-    //analyzing each entry afterwards;
     while (getline(f >> ws, temp))
     {
         doctor d;
-        //creating a string stream object to read from string 'temp';
         stringstream s(temp);
         string s1, s4, s5, s7, s9;
-        //reading from the string stream object 's';
         getline(s, s1, ',');
         getline(s, d.firstName, ',');
         getline(s, d.lastName, ',');
@@ -55,7 +51,6 @@ void doctor::saveMap()
 {
     fstream f;
     f.open("./data/temp.csv", ios::out);
-    // `le first line conataining column headers:
     f << "doctorId,firstName,lastName,gender,age,mobNumber,address,type,appointmentsBooked\n";
     for (auto i : hospital::doctorsList)
         f << i.second.id << "," << i.second.firstName << "," << i.second.lastName << "," << i.second.gender
@@ -73,7 +68,6 @@ void doctor::addPerson()
         cout << "\n\nDoctors limit reached, can't add more!\n\n";
         return;
     }
-    //18 and 65 are the age limits for registration of a new doctor;
     person::addPerson(18, 65);
     if ((age < 18) || (age > 65))
         return;
@@ -85,9 +79,7 @@ void doctor::addPerson()
         id = 1;
     hospital::doctorsList[id] = *this;
 
-    //creating a fstream object to read/write from/to files;
     fstream f;
-    //creating a record in doctorsHistory.csv;
     f.open("./data/doctorsHistory.csv", ios::app);
     f << firstName << "," << lastName << "," << gender << "," << age << "," << mobNumber << "," << add.addToStr() << "," << type << ",N,NA" << endl;
     f.close();
@@ -121,16 +113,12 @@ void doctor::printDetailsFromHistory(string extraDetails)
         fstream f;
         f.open("./data/doctorsHistory.csv", ios::in);
         string temp;
-        //skipping the first row containing column headers;
         getline(f >> ws, temp);
-        //analyzing each entry afterwards;
         while (getline(f >> ws, temp))
         {
             doctor d;
-            //creating a string stream object to read from string 'temp';
             stringstream s(temp);
             string s4, s5, s7;
-            //reading from the string stream object 's';
             getline(s, d.firstName, ',');
             getline(s, d.lastName, ',');
             getline(s, s4, ',');
@@ -161,7 +149,6 @@ void doctor::getDetails(int rec)
     cin >> opt;
     while (opt != 1 && opt != 2 && opt != 3)
         cout << "option 1, 2 or 3?\n", cin >> opt;
-    //1: Filter by ID;
     if (opt == 1)
     {
         int reqId;
@@ -172,7 +159,6 @@ void doctor::getDetails(int rec)
         else
             cout << "\nNo matching record found!\n";
     }
-    //2: Filter by name;
     else if (opt == 2)
     {
         string reqFName, reqLName;
@@ -210,7 +196,6 @@ void doctor::getDetails(int rec)
             } while (tt == 'Y');
         }
     }
-    //3: Filter by type;
     else if (opt == 3)
     {
         string reqType;
@@ -254,7 +239,6 @@ void doctor::getDetailsFromHistory()
     while (opt != 1 && opt != 2)
         cout << "option 1 or 2?\n", cin >> opt;
 
-    //1: Filter by name;
     if (opt == 1)
     {
         string reqFName, reqLName;
@@ -267,16 +251,12 @@ void doctor::getDetailsFromHistory()
         fstream f;
         f.open("./data/doctorsHistory.csv", ios::in);
         string temp;
-        //skipping the first row containing column headers;
         getline(f >> ws, temp);
-        //analyzing each entry afterwards;
         while (getline(f >> ws, temp))
         {
             doctor d;
-            //creating a string stream object to read from string 'temp';
             stringstream s(temp);
             string s4, s5, s7, s9;
-            //reading from the string stream object 's';
             getline(s, d.firstName, ',');
             getline(s, d.lastName, ',');
 
@@ -302,7 +282,6 @@ void doctor::getDetailsFromHistory()
         for (int i = 0; i < matchingRecords.size(); i++)
             matchingRecords[i].printDetailsFromHistory(extraDetails[i]);
     }
-    //2: Filter by type;
     else if (opt == 2)
     {
         string reqType;
@@ -313,16 +292,12 @@ void doctor::getDetailsFromHistory()
         fstream f;
         f.open("./data/doctorsHistory.csv", ios::in);
         string temp;
-        //skipping the first row containing column headers;
         getline(f >> ws, temp);
-        //analyzing each entry afterwards;
         while (getline(f >> ws, temp))
         {
             doctor d;
-            //creating a string stream object to read from string 'temp';
             stringstream s(temp);
             string s4, s5, s7, s9;
-            //reading from the string stream object 's';
             getline(s, d.firstName, ',');
             getline(s, d.lastName, ',');
             getline(s, s4, ',');

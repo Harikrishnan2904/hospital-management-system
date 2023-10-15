@@ -4,7 +4,7 @@
 
 #include "./address.hh"
 
-class person //abstract class
+class person
 {
 protected:
     int id;
@@ -16,7 +16,6 @@ protected:
     address add;
     string cat;
     int category;
-    //category: 1:doctor; 2:patient; 3:nurse; 4:driver;
 
 public:
     person();
@@ -29,4 +28,4 @@ public:
     virtual void getDetailsFromHistory() = 0;
     virtual void removePerson() = 0;
 };
-#endif // !PERSON
+#endif

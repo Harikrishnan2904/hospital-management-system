@@ -22,16 +22,12 @@ void patient::fillMap()
     fstream f;
     f.open("./data/patients.csv", ios::in);
     string temp;
-    //skipping the first row containing column headers;
     getline(f >> ws, temp);
-    //analyzing each entry afterwards;
     while (getline(f >> ws, temp))
     {
         patient p;
-        //creating a string stream object to read from string 'temp';
         stringstream s(temp);
         string s1, s4, s5, s7, s8, s9, s10, s11;
-        //reading from the string stream object 's';
         getline(s, s1, ',');
         getline(s, p.firstName, ',');
         getline(s, p.lastName, ',');
@@ -60,7 +56,6 @@ void patient::saveMap()
 {
     fstream f;
     f.open("./data/temp.csv", ios::out);
-    // `le first line conataining column headers:
     f << "patientId,firstName,lastName,gender,age,mobNumber,address,height,weight,wasHospitalized?,stillAlive(ifHospitalized)?\n";
     for (auto i : hospital::patientsList)
         f << i.second.id << "," << i.second.firstName << "," << i.second.lastName << "," << i.second.gender
@@ -74,9 +69,7 @@ void patient::saveMap()
 }
 void patient::addPerson()
 {
-    //getting the basic details of patient from the user side;
     person::addPerson();
-    //getting patient specific details;
     cout << "\nEnter the height of the patient (in cms):\n";
     cin >> height;
     cout << "\nEnter the weight of the patient (in pounds):\n";
@@ -93,9 +86,7 @@ void patient::addPerson()
         id = 1;
     hospital::patientsList[id] = *this;
 
-    //creating a fstream object to read/write from/to files;
     fstream f;
-    //creating a record in patientsHistory.csv;
     f.open("./data/patientsHistory.csv", ios::app);
     f << firstName << "," << lastName << "," << gender << "," << age
       << "," << mobNumber << "," << add.addToStr() << "," << height << ","
@@ -137,16 +128,12 @@ void patient::printDetailsFromHistory(string extraDetails)
         fstream f;
         f.open("./data/patientsHistory.csv", ios::in);
         string temp;
-        //skipping the first row containing column headers;
         getline(f >> ws, temp);
-        //analyzing each entry afterwards;
         while (getline(f >> ws, temp))
         {
             patient p;
-            //creating a string stream object to read from string 'temp';
             stringstream s(temp);
             string s3, s4, s6, s7, s8, s9, s10;
-            //reading from the string stream object 's';
             getline(s, p.firstName, ',');
             getline(s, p.lastName, ',');
             getline(s, s3, ',');
@@ -180,7 +167,6 @@ void patient::getDetails(int rec)
     cin >> opt;
     while (opt != 1 && opt != 2)
         cout << "option 1 or 2?\n", cin >> opt;
-    //1: Filter by ID;
     if (opt == 1)
     {
         int reqId;
@@ -191,7 +177,6 @@ void patient::getDetails(int rec)
         else
             cout << "\nNo matching record found!\n";
     }
-    //2: Filter by name;
     else if (opt == 2)
     {
         string reqFName, reqLName;
@@ -238,7 +223,6 @@ void patient::getDetailsFromHistory()
     cin >> opt;
     while (opt != 1 && opt != 2)
         cout << "option 1 or 2?\n", cin >> opt;
-    //1: Filter by name;
     if (opt == 1)
     {
         string reqFName, reqLName;
@@ -251,16 +235,12 @@ void patient::getDetailsFromHistory()
         fstream f;
         f.open("./data/patientsHistory.csv", ios::in);
         string temp;
-        //skipping the first row containing column headers;
         getline(f >> ws, temp);
-        //analyzing each entry afterwards;
         while (getline(f >> ws, temp))
         {
             patient p;
-            //creating a string stream object to read from string 'temp';
             stringstream s(temp);
             string s3, s4, s6, s7, s8, s9, s10, s12;
-            //reading from the string stream object 's';
             getline(s, p.firstName, ',');
             getline(s, p.lastName, ',');
 
@@ -294,7 +274,6 @@ void patient::getDetailsFromHistory()
         for (int i = 0; i < matchingRecords.size(); i++)
             matchingRecords[i].printDetailsFromHistory(extraDetails[i]);
     }
-    //2: Filter by mobNumber;
     else if (opt == 2)
     {
         string reqMobNum;
@@ -305,16 +284,12 @@ void patient::getDetailsFromHistory()
         fstream f;
         f.open("./data/patientsHistory.csv", ios::in);
         string temp;
-        //skipping the first row containing column headers;
         getline(f >> ws, temp);
-        //analyzing each entry afterwards;
         while (getline(f >> ws, temp))
         {
             patient p;
-            //creating a string stream object to read from string 'temp';
             stringstream s(temp);
             string s3, s4, s6, s7, s8, s9, s10, s12;
-            //reading from the string stream object 's';
             getline(s, p.firstName, ',');
             getline(s, p.lastName, ',');
             getline(s, s3, ',');
@@ -482,10 +457,3 @@ void patient::removePerson()
     cout << firstName << " " << lastName << " discharged!\n";
     return;
 }
-
-// Removing a patient: it's rather "DISCHARGING a HOSPITALIZED patient";
-// If a patient wasn't hospitalized, just came to the hospital for an appointment with;
-// a doctor then that appointment object will be cleared on the next day automatically;
-// and there's no need of removing the patient's record from patients.csv in that case;
-
-// Maybe consider this as a kind of limitation of this system;

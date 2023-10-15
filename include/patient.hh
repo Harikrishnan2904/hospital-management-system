@@ -7,8 +7,8 @@ class appointment;
 class patient : public person
 {
 private:
-    int height; //in cms;
-    int weight; //in pounds;
+    int height;
+    int weight;
     bool hospitalized;
     bool alive;
     friend class appointment;
@@ -26,4 +26,4 @@ public:
     void reportADeath();
     void removePerson() override;
 };
-#endif // !PATIENT
+#endif

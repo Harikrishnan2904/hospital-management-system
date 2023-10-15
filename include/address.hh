@@ -19,4 +19,4 @@ public:
     string addToStr();
     void strToAdd(string str);
 };
-#endif // !ADDRESS
+#endif

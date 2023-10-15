@@ -455,7 +455,9 @@ int main()
     stringstream str(temp);
     getline(str, s, ',');
     getline(str, s, ',');
-    int dd, mm, yyyy;
+    int dd;
+    int mm;
+    int yyyy;
     if (s != "")
         cout << "\n\n\nLast usage date (DD-MM-YYYY) : " << s.substr(6, 2) + "-" + s.substr(4, 2) + "-" + s.substr(0, 4) + "\n";
     cout << "\nPlease Enter Today's Date (DD-MM-YYYY) :\n\nEnter Day: ";

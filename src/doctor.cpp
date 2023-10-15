@@ -27,7 +27,11 @@ void doctor::fillMap()
     {
         doctor d;
         stringstream s(temp);
-        string s1, s4, s5, s7, s9;
+        string s1;
+        string s4;
+        string s5;
+        string s7;
+        string s9;
         getline(s, s1, ',');
         getline(s, d.firstName, ',');
         getline(s, d.lastName, ',');
@@ -105,7 +109,8 @@ void doctor::printDetailsFromHistory(string extraDetails)
         return;
     person::printDetailsFromHistory();
     stringstream k(extraDetails);
-    string s1, s2;
+    string s1;
+    string s2;
     getline(k, s1, ',');
     getline(k, s2, ',');
     if (extraDetails == "")
@@ -118,7 +123,9 @@ void doctor::printDetailsFromHistory(string extraDetails)
         {
             doctor d;
             stringstream s(temp);
-            string s4, s5, s7;
+            string s4;
+            string s5;
+            string s7;
             getline(s, d.firstName, ',');
             getline(s, d.lastName, ',');
             getline(s, s4, ',');
@@ -161,7 +168,8 @@ void doctor::getDetails(int rec)
     }
     else if (opt == 2)
     {
-        string reqFName, reqLName;
+        string reqFName;
+        string reqLName;
         cout << "First Name:\n";
         getline(cin >> ws, reqFName);
         cout << "\nLast Name:\n";
@@ -241,7 +249,8 @@ void doctor::getDetailsFromHistory()
 
     if (opt == 1)
     {
-        string reqFName, reqLName;
+        string reqFName;
+        string reqLName;
         cout << "First Name:\n";
         getline(cin >> ws, reqFName);
         cout << "\nLast Name:\n";
@@ -256,7 +265,10 @@ void doctor::getDetailsFromHistory()
         {
             doctor d;
             stringstream s(temp);
-            string s4, s5, s7, s9;
+            string s4;
+            string s5;
+            string s7;
+            string s9;
             getline(s, d.firstName, ',');
             getline(s, d.lastName, ',');
 
@@ -297,7 +309,10 @@ void doctor::getDetailsFromHistory()
         {
             doctor d;
             stringstream s(temp);
-            string s4, s5, s7, s9;
+            string s4;
+            string s5;
+            string s7;
+            string s9;
             getline(s, d.firstName, ',');
             getline(s, d.lastName, ',');
             getline(s, s4, ',');
@@ -337,9 +352,11 @@ void doctor::removePerson()
     }
     hospital::doctorsList.erase(id);
 
-    string s, temp;
+    string s;
+    string temp;
     stringstream str;
-    fstream f, fout;
+    fstream f;
+    fstream fout;
     string reason;
     cout << "\nReason?\n";
     getline(cin >> ws, reason);

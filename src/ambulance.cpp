@@ -25,7 +25,10 @@ void ambulance::fillMap()
     {
         ambulance a;
         stringstream s(temp);
-        string s1, s5, s6, s7;
+        string s1;
+        string s5;
+        string s6;
+        string s7;
         getline(s, s1, ',');
         getline(s, a.model, ',');
         getline(s, a.manufacturer, ',');
@@ -362,9 +365,11 @@ void ambulance::removeAmbulance()
     }
     hospital::doctorsList.erase(id);
 
-    string s, temp;
+    string s;
+    string temp;
     stringstream str;
-    fstream f, fout;
+    fstream f;
+    fstream fout;
     str << model << "," << manufacturer << "," << vrn << ",Y\n";
     getline(str, s);
     f.open("./data/ambulancesHistory.csv", ios::in);

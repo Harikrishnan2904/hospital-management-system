@@ -27,7 +27,14 @@ void patient::fillMap()
     {
         patient p;
         stringstream s(temp);
-        string s1, s4, s5, s7, s8, s9, s10, s11;
+        string s1;
+        string s4;
+        string s5;
+        string s7;
+        string s8;
+        string s9;
+        string s10;
+        string s11;
         getline(s, s1, ',');
         getline(s, p.firstName, ',');
         getline(s, p.lastName, ',');
@@ -133,7 +140,13 @@ void patient::printDetailsFromHistory(string extraDetails)
         {
             patient p;
             stringstream s(temp);
-            string s3, s4, s6, s7, s8, s9, s10;
+            string s3;
+            string s4;
+            string s6;
+            string s7;
+            string s8;
+            string s9;
+            string s10;
             getline(s, p.firstName, ',');
             getline(s, p.lastName, ',');
             getline(s, s3, ',');
@@ -179,7 +192,8 @@ void patient::getDetails(int rec)
     }
     else if (opt == 2)
     {
-        string reqFName, reqLName;
+        string reqFName;
+        string reqLName;
         cout << "First Name:\n";
         getline(cin >> ws, reqFName);
         cout << "\nLast Name:\n";
@@ -225,7 +239,8 @@ void patient::getDetailsFromHistory()
         cout << "option 1 or 2?\n", cin >> opt;
     if (opt == 1)
     {
-        string reqFName, reqLName;
+        string reqFName;
+        string reqLName;
         cout << "First Name:\n";
         getline(cin >> ws, reqFName);
         cout << "\nLast Name:\n";
@@ -240,7 +255,14 @@ void patient::getDetailsFromHistory()
         {
             patient p;
             stringstream s(temp);
-            string s3, s4, s6, s7, s8, s9, s10, s12;
+            string s3;
+            string s4;
+            string s6;
+            string s7;
+            string s8;
+            string s9;
+            string s10;
+            string s12;
             getline(s, p.firstName, ',');
             getline(s, p.lastName, ',');
 
@@ -331,9 +353,12 @@ void patient::hospitalize()
     if (id == -1)
         return;
     hospital::patientsList[id].hospitalized = 1;
-    string s, temp, corrected;
+    string s;
+    string temp;
+    string corrected;
     stringstream str;
-    fstream f, fout;
+    fstream f;
+    fstream fout;
     str << firstName << "," << lastName
         << "," << gender << "," << age << "," << mobNumber << "," << add.addToStr()
         << "," << height << "," << weight << "," << ((hospitalized) ? "Y" : "N")
@@ -420,9 +445,11 @@ void patient::removePerson()
         return;
     }
     hospital::patientsList.erase(id);
-    string s, temp;
+    string s;
+    string temp;
     stringstream str;
-    fstream f, fout;
+    fstream f;
+    fstream fout;
     str << firstName << "," << lastName
         << "," << gender << "," << age << "," << mobNumber << "," << add.addToStr()
         << "," << height << "," << weight << "," << ((hospitalized) ? "Y" : "N")

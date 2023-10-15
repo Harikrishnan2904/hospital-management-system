@@ -25,7 +25,11 @@ void appointment::fillMap()
     {
         appointment a;
         stringstream s(temp);
-        string s1, s2, s3, s4, s5;
+        string s1;
+        string s2;
+        string s3;
+        string s4;
+        string s5;
         getline(s, s1, ',');
         getline(s, s2, ',');
         getline(s, s3, ',');

@@ -9,8 +9,9 @@ using namespace std;
 #include "./../include/appointment.hh"
 #include "./../include/hospital.hh"
 
-appointment::appointment(): id(-1)
+appointment::appointment()
 {
+    id = -1;
     D.id = -1;
     P.id = -1;
 }

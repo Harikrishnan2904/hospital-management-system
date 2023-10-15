@@ -9,7 +9,10 @@ using namespace std;
 #include "./../include/nurse.hh"
 #include "./../include/hospital.hh"
 
-nurse::nurse(): id(-1), type(""), cat("nurse"), category(3) {}
+nurse::nurse() : id(-1), cat("nurse"), category(3)
+{
+    type = "";
+}
 void nurse::fillMap()
 {
     fstream f;

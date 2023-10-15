@@ -8,7 +8,10 @@ using namespace std;
 #include "./../include/global.hh"
 #include "./../include/person.hh"
 
-person::person(): id(-1) {}
+person::person()
+{
+    id = -1;
+}
 void person::addPerson(int16_t minAge, int16_t maxAge)
 {
     cout << "\nEnter name: \nFirst name:\n";

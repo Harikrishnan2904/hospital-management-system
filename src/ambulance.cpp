@@ -9,8 +9,9 @@ using namespace std;
 #include "./../include/ambulance.hh"
 #include "./../include/hospital.hh"
 
-ambulance::ambulance(): id(-1)
+ambulance::ambulance()
 {
+    id = -1;
     add.strToAdd("`````");
     D.id = -1;
 }
